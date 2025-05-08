@@ -1,0 +1,42 @@
+[
+    {
+        "question": "How does livekit integration work in this app?",
+        "answer": "It enables live supervision by allowing real-time video/audio support.",
+        "suggestion": "Add a short tutorial or tooltip near the LiveKit section explaining how to start a session."
+    },
+    {
+        "question": "Can I edit the AI\u00e2\u20ac\u2122s answer before submitting it to the user?",
+        "answer": "Yes, supervisors can review and edit the answer.",
+        "suggestion": "Enable inline editing directly in the answer card instead of redirecting to another form."
+    },
+    {
+        "question": "What happens when the AI gives a wrong answer?",
+        "answer": "Supervisors can correct it and mark it as resolved.",
+        "suggestion": "Add a button to report bad AI responses for future training improvement."
+    },
+    {
+        "question": "Is there a way to search old queries?",
+        "answer": "Not yet.",
+        "suggestion": "Add a search bar to quickly filter past requests by keywords."
+    },
+    {
+        "question": "Can we retrain the AI with supervisor corrections?",
+        "answer": "Currently, no automatic retraining is done.",
+        "suggestion": "Add an option to export corrected Q&A pairs for fine-tuning the AI later."
+    },
+    {
+        "question": "Are all requests reviewed by a human?",
+        "answer": "Only unresolved or unclear ones.",
+        "suggestion": "Show a confidence score next to each AI answer to help supervisors prioritize."
+    },
+    {
+        "question": "Can I sort requests by urgency or date?",
+        "answer": "Not currently.",
+        "suggestion": "Add sorting options (by time, importance, AI confidence) in the Supervisor Panel."
+    },
+    {
+        "question": "Is there a log of who resolved which request?",
+        "answer": "Not explicitly.",
+        "suggestion": "Add audit trails showing which supervisor resolved which query and when."
+    }
+]

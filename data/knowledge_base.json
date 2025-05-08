@@ -1,0 +1,54 @@
+[
+    {
+        "question": "What is the role of a supervisor in this system?",
+        "answer": "The supervisor reviews unanswered or unclear questions, verifies the AI's response, and either approves or provides a better answer."
+    },
+    {
+        "question": "Where are help requests stored?",
+        "answer": "Help requests are stored in the 'help_requests.json' file located in the 'data' folder."
+    },
+    {
+        "question": "Can users interact with the AI in real time?",
+        "answer": "Yes, using LiveKit integration, users can have live interactions with supervisors when needed."
+    },
+    {
+        "question": "How do supervisors access unresolved questions?",
+        "answer": "They can access them through the 'Supervisor Panel' available via the main navigation bar."
+    },
+    {
+        "question": "What happens after a request is resolved?",
+        "answer": "If approved, the answer is added to the knowledge base. The request then moves to the resolved list."
+    },
+    {
+        "question": "Can supervisors delete incorrect entries?",
+        "answer": "Yes, supervisors can remove or edit entries in both the knowledge base and resolved requests section."
+    },
+    {
+        "question": "What file contains the AI's knowledge base?",
+        "answer": "The knowledge base is stored in 'knowledge_base.json'."
+    },
+    {
+        "question": "How does the system handle duplicate questions?",
+        "answer": "It checks for similarity using basic matching, but exact duplicates can still appear and may need manual cleanup."
+    },
+    {
+        "question": "Can the system learn from supervisor corrections?",
+        "answer": "Not automatically, but corrected answers update the knowledge base for future use."
+    },
+    {
+        "question": "Is internet required for LiveKit?",
+        "answer": "Yes, LiveKit requires internet connectivity to establish real-time video or audio communication."
+    },
+    {
+        "question": "hi",
+        "answer": "hi"
+    },
+    {
+        "question": "ki",
+        "answer": "jk"
+    },
+    {
+        "question": "hu",
+        "answer": "ji"
+    }
+]

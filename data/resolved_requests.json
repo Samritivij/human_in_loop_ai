@@ -1,0 +1,338 @@
+[
+    {
+        "question": "how re u",
+        "ai_suggestion": null,
+        "supervisor_comment": null,
+        "resolved_at": "2025-05-06T01:40:18.186073",
+        "status": "rejected"
+    },
+    {
+        "question": "how is weather today?",
+        "ai_suggestion": "None",
+        "supervisor_comment": "good",
+        "resolved_at": "2025-05-06T02:09:00.401888",
+        "status": "approved"
+    },
+    {
+        "question": "hello what are u doing?",
+        "ai_suggestion": "None",
+        "supervisor_comment": "work",
+        "resolved_at": "2025-05-06T02:21:08.609148",
+        "status": "approved"
+    },
+    {
+        "question": "what is your goal?",
+        "ai_suggestion": "None",
+        "supervisor_comment": "software engineer",
+        "resolved_at": "2025-05-06T02:29:30.966390",
+        "status": "approved"
+    },
+    {
+        "question": "hello what are u doing?",
+        "ai_suggestion": "None",
+        "supervisor_comment": "good",
+        "resolved_at": "2025-05-06T02:34:30.943936",
+        "status": "approved"
+    },
+    {
+        "question": "hello what are u doing?",
+        "ai_suggestion": "None",
+        "supervisor_comment": "good",
+        "resolved_at": "2025-05-06T02:35:48.669083",
+        "status": "approved"
+    },
+    {
+        "question": "hello what are u doing?",
+        "ai_suggestion": "work",
+        "supervisor_comment": "work",
+        "resolved_at": "2025-05-06T02:41:35.452552",
+        "status": "approved"
+    },
+    {
+        "question": "how is weather today?",
+        "ai_suggestion": "baarish",
+        "supervisor_comment": "baarish",
+        "resolved_at": "2025-05-06T02:42:24.291353",
+        "status": "approved"
+    },
+    {
+        "question": "tbiyat",
+        "ai_suggestion": "badhiya",
+        "supervisor_comment": null,
+        "resolved_at": "2025-05-06T02:42:43.077635",
+        "status": "approved"
+    },
+    {
+        "question": "hh",
+        "ai_suggestion": "nbn",
+        "supervisor_comment": "nbn",
+        "resolved_at": "2025-05-06T11:49:12.513529",
+        "status": "approved"
+    },
+    {
+        "question": "j",
+        "ai_suggestion": "j",
+        "supervisor_comment": null,
+        "resolved_at": "2025-05-06T11:49:23.377933",
+        "status": "approved"
+    },
+    {
+        "question": "jfj",
+        "ai_suggestion": null,
+        "supervisor_comment": "",
+        "resolved_at": "2025-05-06T12:41:42.587243",
+        "status": "rejected"
+    },
+    {
+        "question": "hj",
+        "ai_suggestion": null,
+        "supervisor_comment": "",
+        "resolved_at": "2025-05-06T12:41:44.260640",
+        "status": "rejected"
+    },
+    {
+        "question": "how was ur day?",
+        "ai_suggestion": "good",
+        "supervisor_comment": "good",
+        "resolved_at": "2025-05-06T12:41:47.947632",
+        "status": "approved"
+    },
+    {
+        "question": "kl",
+        "ai_suggestion": "kl",
+        "supervisor_comment": "kl",
+        "resolved_at": "2025-05-06T12:47:29.104874",
+        "status": "approved"
+    },
+    {
+        "question": "kl",
+        "ai_suggestion": "kl",
+        "supervisor_comment": null,
+        "resolved_at": "2025-05-06T12:47:43.799699",
+        "status": "approved"
+    },
+    {
+        "question": "hj",
+        "ai_suggestion": "hj",
+        "supervisor_comment": null,
+        "resolved_at": "2025-05-06T12:50:06.943859",
+        "status": "approved"
+    },
+    {
+        "question": "jionm",
+        "ai_suggestion": "jiko",
+        "supervisor_comment": "jiko",
+        "resolved_at": "2025-05-06T12:56:14.342023",
+        "status": "approved"
+    },
+    {
+        "question": "koi h",
+        "ai_suggestion": "nhi",
+        "supervisor_comment": null,
+        "resolved_at": "2025-05-06T13:03:35.892301",
+        "status": "approved"
+    },
+    {
+        "question": "kl",
+        "ai_suggestion": "kl",
+        "supervisor_comment": null,
+        "resolved_at": "2025-05-06T13:08:05.155370",
+        "status": "approved"
+    },
+    {
+        "question": "h",
+        "ai_suggestion": "h",
+        "supervisor_comment": null,
+        "resolved_at": "2025-05-06T17:23:20.803044",
+        "status": "approved"
+    },
+    {
+        "question": "bhi",
+        "ai_suggestion": "None",
+        "supervisor_comment": "",
+        "resolved_at": "2025-05-06T18:32:08.688228",
+        "status": "approved"
+    },
+    {
+        "question": "what is your goal?",
+        "ai_suggestion": null,
+        "supervisor_comment": "",
+        "resolved_at": "2025-05-06T19:20:20.794745",
+        "status": "rejected"
+    },
+    {
+        "question": "what is your goal?",
+        "ai_suggestion": "inh",
+        "supervisor_comment": "inh",
+        "resolved_at": "2025-05-06T19:28:17.359748",
+        "status": "approved"
+    },
+    {
+        "question": "hi",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T19:47:42.474172",
+        "resolved_at": "2025-05-06T19:58:01.707325"
+    },
+    {
+        "question": "hi",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T19:48:15.210549",
+        "resolved_at": "2025-05-06T19:58:21.765766"
+    },
+    {
+        "question": "how re u",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T19:48:23.620476",
+        "resolved_at": "2025-05-06T19:58:41.851919"
+    },
+    {
+        "question": "hi",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T20:09:20.046304",
+        "resolved_at": "2025-05-06T21:41:47.635988"
+    },
+    {
+        "question": "what do ai do",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T21:56:53.647672",
+        "resolved_at": "2025-05-06T22:06:54.754816"
+    },
+    {
+        "question": "cnch",
+        "ai_suggestion": "ckjdj",
+        "supervisor_comment": "ckjdj",
+        "resolved_at": "2025-05-06T22:12:36.058387",
+        "status": "approved"
+    },
+    {
+        "question": "gd",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T22:09:16.018217",
+        "resolved_at": "2025-05-06T22:19:18.620750"
+    },
+    {
+        "question": "jk",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T22:09:21.027913",
+        "resolved_at": "2025-05-06T22:19:38.722532"
+    },
+    {
+        "question": "cnch",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T22:12:29.928567",
+        "resolved_at": "2025-05-06T22:22:39.503268"
+    },
+    {
+        "question": "how ius ",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T22:14:51.673041",
+        "resolved_at": "2025-05-06T22:25:00.198246"
+    },
+    {
+        "question": "hi",
+        "ai_suggestion": "hi",
+        "supervisor_comment": "hi",
+        "resolved_at": "2025-05-06T22:33:49.757563",
+        "status": "approved"
+    },
+    {
+        "question": "hi",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T22:33:43.922946",
+        "resolved_at": "2025-05-06T22:43:45.130379"
+    },
+    {
+        "question": "b",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T22:41:16.346138",
+        "resolved_at": "2025-05-06T22:51:27.446064"
+    },
+    {
+        "question": "n",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T23:00:09.266856",
+        "resolved_at": "2025-05-06T23:18:10.989730"
+    },
+    {
+        "question": "ki",
+        "ai_suggestion": "jk",
+        "supervisor_comment": "jk",
+        "resolved_at": "2025-05-06T23:18:38.495242",
+        "status": "approved"
+    },
+    {
+        "question": "kijh",
+        "ai_suggestion": null,
+        "supervisor_comment": "",
+        "resolved_at": "2025-05-06T23:28:04.715327",
+        "status": "rejected"
+    },
+    {
+        "question": "hello what are u doing?",
+        "ai_suggestion": null,
+        "supervisor_comment": "",
+        "resolved_at": "2025-05-06T23:28:07.565542",
+        "status": "rejected"
+    },
+    {
+        "question": "ki",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T23:18:25.307105",
+        "resolved_at": "2025-05-06T23:28:34.001586"
+    },
+    {
+        "question": "hu",
+        "answer": null,
+        "ai_suggestion": null,
+        "supervisor_comment": "Marked unresolved due to timeout",
+        "status": "unresolved",
+        "timestamp": "2025-05-06T23:18:28.696649",
+        "resolved_at": "2025-05-06T23:28:34.001586"
+    },
+    {
+        "question": "hu",
+        "ai_suggestion": "ji",
+        "supervisor_comment": "ji",
+        "resolved_at": "2025-05-06T23:29:26.550111",
+        "status": "approved"
+    }
+]
