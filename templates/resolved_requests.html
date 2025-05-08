@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Human-in-the-Loop AI - Resolved Requests</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        h1,
+        h3,h2 {
+            color: #333;
+        }
+
+        .resolved-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .resolved-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .resolved-card strong {
+            color: #1f2937;
+        }
+
+        .status-approved {
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        .status-rejected {
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        em {
+            color: #6b7280;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 12px;
+            border-radius: 4px;
+            margin-left: 5px;
+        }
+
+        .approved-tag {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .rejected-tag {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav">
+        <a href="/">Home</a>|
+        <a href="/requests">Supervisor Panel</a>|
+        <a href="/kb">View Knowledge Base</a>|
+        <a href="/resolved">Resolved Requests</a>|
+        <a href="/suggestions">View Suggestions</a>
+    </div>
+
+    <h1>📌 Resolved Help Requests</h1>
+
+    {% for req in resolved %}
+    <div class="resolved-card">
+        <p><strong>Question:</strong> {{ req.question }}</p>
+
+        <p><strong>AI Suggestion:</strong>
+            {% if req.ai_suggestion %}
+            {{ req.ai_suggestion }}
+            {% else %}
+            <em>No suggestion provided</em>
+            {% endif %}
+        </p>
+
+        <p><strong>Status:</strong>
+            {% if req.status == 'approved' %}
+            <span class="status-approved">Approved</span>
+            <span class="tag approved-tag">✓ Approved</span>
+            {% elif req.status == 'rejected' %}
+            <span class="status-rejected">Rejected</span>
+            <span class="tag rejected-tag">✗ Rejected</span>
+            {% else %}
+            {{ req.status }}
+            {% endif %}
+        </p>
+
+        <p><strong>Supervisor Comment:</strong>
+            {% if req.supervisor_comment %}
+            {{ req.supervisor_comment }}
+            {% else %}
+            <em>No comment</em>
+            {% endif %}
+        </p>
+    </div>
+    {% endfor %}
+
+</body>
+
+</html>

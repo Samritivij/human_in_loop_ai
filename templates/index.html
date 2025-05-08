@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Human-in-the-Loop AI</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        h1,
+        h3 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 15px;
+        }
+
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .feedback-buttons button {
+            font-size: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .feedback-buttons button:hover {
+            transform: scale(1.2);
+        }
+
+        .suggest-box textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+        }
+
+        .suggest-box button {
+            margin-top: 10px;
+        }
+
+        .answer-section,
+        .feedback-section,
+        .suggest-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="/">Home</a> |
+        <a href="/requests">Supervisor Panel</a> |
+        <a href="/kb">View Knowledge Base</a> |
+        <a href="/resolved">Resolved Requests</a> |
+        <a href="/suggestions">View Suggestions</a>
+    </div>
+
+    <h1>🤖 Ask a Question</h1>
+    <form action="/ask" method="POST">
+        <input type="text" name="question" placeholder="Type your question" required>
+        <button type="submit">Ask</button>
+    </form>
+
+    {% if question %}
+    <div class="answer-section">
+        <h3>Your Question:</h3>
+        <p>{{ question }}</p>
+
+        <h3>Answer:</h3>
+        <p>{{ answer }}</p>
+    </div>
+
+    <!-- Feedback Buttons -->
+    {% if not feedback_submitted %}
+    <div class="feedback-section">
+        <p><strong>Was this answer helpful?</strong></p>
+        <form method="POST" action="/feedback" class="feedback-buttons">
+            <input type="hidden" name="question" value="{{ question }}">
+            <input type="hidden" name="answer" value="{{ answer }}">
+            <button name="feedback" value="upvote" title="Helpful 😊">👍</button>
+            <button name="feedback" value="downvote" title="Not Helpful 😕">👎</button>
+        </form>
+    </div>
+    {% endif %}
+
+    <!-- Show Feedback Message -->
+    {% if feedback_message %}
+    <p><strong>{{ feedback_message }}</strong></p>
+    {% endif %}
+
+    <!-- Suggest a better answer -->
+    {% if feedback_type == "downvote" %}
+    <div class="suggest-box">
+        <form method="POST" action="/suggest_edit">
+            <input type="hidden" name="question" value="{{ question }}">
+            <textarea name="suggestion" placeholder="Suggest a better answer..." required></textarea>
+            <button type="submit">Submit Suggestion</button>
+        </form>
+    </div>
+    {% endif %}
+    {% endif %}
+
+    <hr>
+    <h3>🔌 Simulate LiveKit Help Request</h3>
+    <input type="text" id="livekit-query" placeholder="Enter query..." />
+    <button onclick="simulateLiveKit()">Send to LiveKit</button>
+    <p id="livekit-response"></p>
+
+    <script>
+        function simulateLiveKit() {
+            const query = document.getElementById("livekit-query").value;
+            fetch("/simulate-livekit", {  // ✅ use hyphen
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ query: query })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById("livekit-response").innerText = "❌ " + data.error;
+                    } else {
+                        document.getElementById("livekit-response").innerText = "✅ Sent to LiveKit!";
+                    }
+                })
+                .catch(err => {
+                    document.getElementById("livekit-response").innerText = "❌ Error: " + err.message;
+                });
+        }
+    </script>
+
+
+</body>
+
+</html>

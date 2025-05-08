@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Suggestions</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        .suggestion {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .suggestion p {
+            margin: 5px 0;
+        }
+
+        .question {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .answer {
+            color: #333;
+        }
+
+        .suggestion-text {
+            font-style: italic;
+            color: #007BFF;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        form button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .message {
+            margin: 10px 0;
+            color: green;
+        }
+        
+
+
+    </style>
+</head>
+
+<body>
+    
+
+    <div class="nav">
+        <a href="/">Home</a> |
+        <a href="/requests">Supervisor Panel</a> |
+        <a href="/kb">View Knowledge Base</a> |
+        <a href="/resolved">Resolved Requests</a> |
+        <a href="/suggestions">View Suggestions</a>
+    </div>
+     
+
+    <h1>📋 User Suggestions</h1>
+
+    {% if suggestions %}
+    {% for item in suggestions %}
+    <div class="suggestion">
+        <p class="question">❓ Q: {{ item['question'] }}</p>
+        <p class="answer">💬 A: {{ item['answer'] }}</p>
+        <p class="suggestion-text">💡 Suggestion: "{{ item['suggestion'] }}"</p>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No suggestions submitted yet.</p>
+    {% endif %}
+
+    <h2>✍️ Submit a New Suggestion</h2>
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+    <form action="/suggestions" method="post">
+        <label for="question">Question:</label>
+        <input type="text" id="question" name="question" required>
+        <br>
+        <label for="answer">Answer:</label>
+        <textarea id="answer" name="answer" rows="3" required></textarea>
+
+        <label for="suggestion">Your Suggestion:</label>
+        <textarea id="suggestion" name="suggestion" rows="2" required></textarea>
+
+        <button type="submit">Submit Suggestion</button>
+    </form>
+</body>
+
+</html>

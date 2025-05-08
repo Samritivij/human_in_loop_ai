@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Supervisor Panel</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        h1,h2,h3 {
+            color: #333;
+        }
+
+        .request-card {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .request-card strong {
+            color: #333;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-buttons button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .approve-btn {
+            background-color: green;
+            color: white;
+        }
+
+        .reject-btn {
+            background-color: red;
+            color: white;
+        }
+
+        .action-buttons button:hover {
+            opacity: 0.8;
+        }
+
+        .message {
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            overflow: auto;
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+        }
+
+        .modal-footer button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cancel-btn {
+            background-color: gray;
+            color: white;
+        }
+
+        .confirm-btn {
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav">
+        <a href="/">Home</a> |
+        <a href="/requests">Supervisor Panel</a> |
+        <a href="/kb">View Knowledge Base</a> |
+        <a href="/resolved">Resolved Requests</a> |
+        <a href="/suggestions">View Suggestions</a>
+    </div>
+
+    <h1>🛠️ Pending Help Requests</h1>
+
+    {% if message %}
+    <div class="message">{{ message }}</div>
+    {% endif %}
+
+    {% for req in requests %}
+    <div class="request-card">
+        <strong>Question:</strong> {{ req.question }}
+        {% if req.source %}
+        <em style="color: gray;">({{ req.source }})</em>
+        {% else %}
+        <em style="color: gray;">(User)</em>
+        {% endif %}
+        <br>
+        {% if req.ai_suggestion %}
+        <strong>AI Suggestion:</strong> {{ req.ai_suggestion }}<br>
+        {% endif %}
+
+        <form action="/update_request" method="post" id="form-{{ req.id }}">
+            <input type="hidden" name="id" value="{{ req.id }}">
+            <input type="hidden" name="question" value="{{ req.question }}">
+            <input type="hidden" name="ai_suggestion" value="{{ req.ai_suggestion }}">
+
+            <label for="comment">Supervisor Comment:</label><br>
+            <textarea name="comment" rows="2" cols="40" placeholder="Write a comment (optional)"></textarea><br><br>
+
+            <div class="action-buttons">
+                <button type="button" class="approve-btn"
+                    onclick="openModal('approve', '{{ req.id }}')">Approve</button>
+                <button type="button" class="reject-btn" onclick="openModal('reject', '{{ req.id }}')">Reject</button>
+            </div>
+        </form>
+    </div>
+    {% endfor %}
+
+    <!-- Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <div class="modal-footer">
+                <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+                <button type="button" class="confirm-btn" id="confirmButton">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let actionType = '';
+        let requestId = '';
+
+        function openModal(action, id) {
+            actionType = action;
+            requestId = id;
+            let modalMessage = action === 'approve' ? 'Are you sure you want to approve this request?' : 'Are you sure you want to reject this request?';
+            document.getElementById('modalMessage').textContent = modalMessage;
+            document.getElementById('confirmationModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('confirmationModal').style.display = 'none';
+        }
+
+        document.getElementById('confirmButton').addEventListener('click', function () {
+            const form = document.getElementById('form-' + requestId);
+            const actionInput = document.createElement('input');
+            actionInput.type = 'hidden';
+            actionInput.name = 'action';
+            actionInput.value = actionType;
+            form.appendChild(actionInput);
+            form.submit();
+            closeModal();
+        });
+    </script>
+</body>
+
+</html>

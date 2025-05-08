@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Knowledge Base</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        h1,
+        h2,h3 {
+            color: #333;
+        }
+
+        .kb-entry {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="/">Home</a> |
+        <a href="/requests">Supervisor Panel</a> |
+        <a href="/kb">View Knowledge Base</a> |
+        <a href="/resolved">Resolved Requests</a> |
+        <a href="/suggestions">View Suggestions</a>
+    </div>
+
+    <h1>📘 Knowledge Base</h1>
+
+    <!-- ✅ Add Search Form Here -->
+    <form method="GET" action="/kb" style="margin-bottom: 20px;">
+        <input type="text" name="query" placeholder="Search..." value="{{ query or '' }}"
+            style="padding: 8px; width: 250px; border-radius: 4px; border: 1px solid #ccc;">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if kb %}
+    {% for pair in kb %}
+    <div class="kb-entry">
+        <strong>Q:</strong> {{ pair.question }} <br>
+        <strong>A:</strong> {{ pair.answer }}
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No entries in the knowledge base yet.</p>
+    {% endif %}
+
+    <hr>
+
+    <h2>➕ Add New Entry</h2>
+    <div class="form-section">
+        <form action="/submit_answer" method="POST" onsubmit="return confirmSubmission();">
+            <label for="question">Question:</label><br>
+            <textarea name="question" required rows="2"></textarea><br><br>
+
+            <label for="answer">Answer:</label><br>
+            <textarea name="answer" required rows="3"></textarea><br><br>
+
+            <button type="submit">Add to Knowledge Base</button>
+        </form>
+    </div>
+    <script>
+        function confirmSubmission() {
+            return confirm("Are you sure you want to add this entry to the Knowledge Base?");
+        }
+    </script>
+
+</body>
+
+</html>
