@@ -60,3 +60,6 @@ python app.py
 # 4.Learned Answers UI
 # No separate view or section for “Learned Answers” (from supervisor responses) exists.
 # Add a route to display what the AI has learned over time.
+
+![Screenshot (17)](https://github.com/user-attachments/assets/e8c282e2-1053-463c-ad53-55e24cb1af08)
+![Screenshot (18)](https://github.com/user-attachments/assets/94d77bd8-5e2d-42f2-900c-c5717753abbb)
